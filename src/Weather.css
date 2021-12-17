@@ -1,0 +1,126 @@
+.Weather #city,
+.Weather #country {
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.Weather ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Weather .search-bar {
+  padding: 5px;
+  margin: 5px 0 0 0;
+}
+.Weather .background-box {
+  background-color: #f8fdff;
+  margin-top: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  max-width: 1000px;
+}
+
+.Weather .day {
+  text-align: center;
+}
+
+.Weather .daily-icon {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 30px;
+  padding: 20px;
+}
+
+.Weather .info-value {
+  font-weight: bold;
+}
+
+.Weather .suntime {
+  font-size: 16px;
+  margin: 0 auto;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+.Weather .info-description {
+  font-size: 14px;
+}
+
+.Weather .day-name {
+  text-align: center;
+  font-weight: bold;
+}
+
+.Weather #temperature {
+  display: inline;
+  font-size: 30px;
+}
+
+.Weather .unit {
+  position: relative;
+  line-height: 0;
+  vertical-align: baseline;
+  top: -0.6em;
+}
+
+.Weather #position-button {
+  display: inline;
+}
+
+.Weather #Github-link {
+  font-size: 12px;
+}
+
+.Weather #description {
+  text-transform: capitalize;
+  text-align: left;
+}
+
+.Weather .last-update {
+  font-size: 14px;
+}
+.Weather .weather-info .active {
+  color: black;
+  cursor: default;
+  text-align: left;
+  display: inline;
+}
+
+.Weather .weather-info .active:hover {
+  text-decoration: none;
+}
+
+.Weather .weather-forecast {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.Weather .weather-forecast-date,
+.Weather .weather-forecast-temp-min {
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.Weather .weather-forecast-temperatures {
+  font-size: 15px;
+}
+
+.Weather #main-icon {
+  margin: 0 auto;
+}
+
+.Weather .weather-info {
+  display: inline;
+  text-align: left;
+}
+
+.Weather .current-city {
+  text-align: left;
+  display: inline;
+}
