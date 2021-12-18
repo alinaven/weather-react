@@ -5,7 +5,7 @@ import FormattedTime from "./FormattedTime";
 
 export default function Weatherinfo(props) {
   return (
-    <div className="WeatherInfo">
+    <div className="Weatherinfo">
       <div className="row p-3">
         <div className="col-sm-6 location-info">
           <div className="row mt-0">
