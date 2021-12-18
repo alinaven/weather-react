@@ -1,3 +1,7 @@
+.Weather {
+  max-width: 800px;
+}
+
 .Weather #city,
 .Weather #country {
   font-family: "Poppins", sans-serif;
@@ -41,10 +45,10 @@
 }
 
 .Weather .suntime {
-  font-size: 16px;
-  margin: 0 auto;
+  display: inline;
   font-size: 13px;
   margin-top: 20px;
+  text-align: left;
 }
 
 .Weather .info-description {
@@ -58,14 +62,15 @@
 
 .Weather #temperature {
   display: inline;
-  font-size: 30px;
+  font-size: 60px;
+  font-weight: bold;
 }
 
 .Weather .unit {
   position: relative;
   line-height: 0;
   vertical-align: baseline;
-  top: -0.6em;
+  top: -1.8em;
 }
 
 .Weather #position-button {
@@ -82,7 +87,7 @@
 }
 
 .Weather .last-update {
-  font-size: 14px;
+  font-size: 10px;
 }
 .Weather .weather-info .active {
   color: black;
@@ -113,6 +118,7 @@
 
 .Weather #main-icon {
   margin: 0 auto;
+  max-width: 60px;
 }
 
 .Weather .weather-info {
