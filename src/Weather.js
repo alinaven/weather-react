@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -18,7 +19,7 @@ export default function Weather(props) {
       description: response.data.weather[0].description,
       iconURL:
         "https://st2.depositphotos.com/8511412/11363/v/950/depositphotos_113639238-stock-illustration-sun-icon-sun-icon-eps10.jpg",
-      time: "Mon 09:00",
+      date: new Date(response.data.dt * 1000),
       sunrise: "08:00",
       sunset: "16:45",
     });
@@ -65,7 +66,9 @@ export default function Weather(props) {
                   <p>
                     <span className="last-update">
                       Last updated:{" "}
-                      <span id="last-update">{weatherData.time}</span>
+                      <span id="last-update">
+                        <FormattedDate date={weatherData.date} />
+                      </span>
                     </span>
                   </p>
                 </div>
@@ -149,7 +152,6 @@ export default function Weather(props) {
     );
   } else {
     let apiKey = "5d746e8f46d35c046956d77d0f16774f";
-    let city = "New York";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
