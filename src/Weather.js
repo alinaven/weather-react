@@ -1,137 +1,158 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import "./Weather.css";
 
-export default function Weather() {
-  let weatherData = {
-    city: "New York",
-    country: "US",
-    temp: "13",
-    felttemp: "12",
-    time: "Mon 13:23h",
-    sunrise: " 08:00",
-    sunset: " 16.45",
-    humidity: " 30",
-    wind: " 4",
-    iconURL:
-      "https://st2.depositphotos.com/8511412/11363/v/950/depositphotos_113639238-stock-illustration-sun-icon-sun-icon-eps10.jpg",
-    description: "Light clouds",
-  };
+export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
-  return (
-    <div className="Weather">
-      <div className="background-box shadow p-3 m-5 rounded">
-        <div className="row m-2">
-          <div className="search-bar">
-            <form id="search-form">
-              <div className="input-group">
-                <input
-                  type="search"
-                  className="form-control"
-                  id="city-input"
-                  placeholder="Enter city"
-                  autoFocus="on"
-                  autoComplete="off"
-                />
-                <div className="input-group-append">
-                  <button className="btn btn-outline-secondary" type="submit">
-                    🔎 Search
-                  </button>
-                  <button
-                    className="btn btn-outline-secondary"
-                    id="position-button"
-                  >
-                    📍 Current
-                  </button>
+  function handleResponse(response) {
+    console.log(response.data);
+    setWeatherData({
+      ready: true,
+      temperature: Math.round(response.data.main.temp),
+      wind: response.data.wind.speed,
+      city: response.data.name,
+      country: response.data.sys.country,
+      felttemp: response.data.sys.feels_like,
+      humidity: response.data.main.humidity,
+      description: response.data.weather[0].description,
+      iconURL:
+        "https://st2.depositphotos.com/8511412/11363/v/950/depositphotos_113639238-stock-illustration-sun-icon-sun-icon-eps10.jpg",
+      time: "Mon 09:00",
+      sunrise: "08:00",
+      sunset: "16:45",
+    });
+  }
+
+  if (weatherData.ready) {
+    return (
+      <div className="Weather">
+        <div className="background-box shadow p-3 m-5 rounded">
+          <div className="row m-2">
+            <div className="search-bar">
+              <form id="search-form">
+                <div className="input-group">
+                  <input
+                    type="search"
+                    className="form-control"
+                    id="city-input"
+                    placeholder="Enter city"
+                    autoFocus="on"
+                    autoComplete="off"
+                  />
+                  <div className="input-group-append">
+                    <button className="btn btn-outline-secondary" type="submit">
+                      🔎 Search
+                    </button>
+                    <button
+                      className="btn btn-outline-secondary"
+                      id="position-button"
+                    >
+                      📍 Current
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div className="row p-3">
+            <div className="col-sm-6 location-info">
+              <div className="row mt-0">
+                <div className="col-sm-12 current-city">
+                  <span id="city">{weatherData.city}, </span>
+                  <span id="country">{weatherData.country}</span>
+                  <p>
+                    <span className="last-update">
+                      Last updated:{" "}
+                      <span id="last-update">{weatherData.time}</span>
+                    </span>
+                  </p>
+                </div>
+
+                <div className="row m-0 p-0">
+                  <div className="col-12 suntime">
+                    Sunrise: <span id="sunrise">{weatherData.sunrise}</span>h |
+                    Sunset:
+                    <span id="sunset">{weatherData.sunset}</span>h
+                  </div>
                 </div>
               </div>
-            </form>
-          </div>
-        </div>
+            </div>
 
-        <div className="row p-3">
-          <div className="col-sm-6 location-info">
-            <div className="row mt-0">
-              <div className="col-sm-12 current-city">
-                <span id="city">{weatherData.city}, </span>
-                <span id="country">{weatherData.country}</span>
-                <p>
-                  <span className="last-update">
-                    Last updated:{" "}
-                    <span id="last-update">{weatherData.time}</span>
+            <div className="col-sm-6 weather-info">
+              <div className="row m-0 mt-0">
+                <div className="col-sm-8 current-weather">
+                  <p id="temperature">{weatherData.temperature}</p>
+                  <span className="unit">°C</span>
+                  <br />
+                  <span id="description" className="text-capitalize">
+                    {weatherData.description}
                   </span>
-                </p>
+                </div>
+                <div className="col-sm-4 mt-4 px-0">
+                  <img
+                    src={weatherData.iconURL}
+                    id="main-icon"
+                    className="img-fluid main-icon"
+                    alt={weatherData.description}
+                  />
+                </div>
               </div>
 
-              <div className="row m-0 p-0">
-                <div className="col-12 suntime">
-                  Sunrise: <span id="sunrise">{weatherData.sunrise}</span>h |
-                  Sunset:
-                  <span id="sunset">{weatherData.sunset}</span>h
+              <div className="row m-0 mt-4">
+                <div className="col-sm-12 info-description">
+                  <ul>
+                    <li>
+                      Temperature feels like
+                      <span className="info-value">
+                        <span id="felt-temperature">
+                          {" "}
+                          {weatherData.felttemp}
+                        </span>
+                        °C
+                      </span>
+                    </li>
+                    <li>
+                      Humidity:
+                      <span className="info-value">
+                        <span id="humidity">{weatherData.humidity}</span>%
+                      </span>
+                    </li>
+                    <li>
+                      Windspeed:
+                      <span className="info-value">
+                        <span id="wind">{weatherData.wind}</span> m/s
+                      </span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="col-sm-6 weather-info">
-            <div className="row m-0 mt-0">
-              <div className="col-sm-8 current-weather">
-                <p id="temperature">{weatherData.temp}</p>
-                <span className="unit">°C</span>
-                <br />
-                <span id="description">{weatherData.description}</span>
-              </div>
-              <div className="col-sm-4 mt-4 px-0">
-                <img
-                  src={weatherData.iconURL}
-                  id="main-icon"
-                  className="img-fluid main-icon"
-                  alt="weather icon"
-                />
-              </div>
-            </div>
-
-            <div className="row m-0 mt-4">
-              <div className="col-sm-12 info-description">
-                <ul>
-                  <li>
-                    Temperature feels like
-                    <span className="info-value">
-                      <span id="felt-temperature"> {weatherData.felttemp}</span>
-                      °C
-                    </span>
-                  </li>
-                  <li>
-                    Humidity:
-                    <span className="info-value">
-                      <span id="humidity">{weatherData.humidity}</span>%
-                    </span>
-                  </li>
-                  <li>
-                    Windspeed:
-                    <span className="info-value">
-                      <span id="wind">{weatherData.wind}</span> km/h
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          <div>
+            <hr />
           </div>
+          <div className="weather-forecast" id="forecast"></div>
+          <div>
+            <hr />
+          </div>
+          <footer id="Github-link">
+            <a href="https://github.com/alinaven/my-weather-app">
+              👩🏼‍💻 Open-source code{" "}
+            </a>
+            by Alina Vennes
+          </footer>
         </div>
-
-        <div>
-          <hr />
-        </div>
-        <div className="weather-forecast" id="forecast"></div>
-        <div>
-          <hr />
-        </div>
-        <footer id="Github-link">
-          <a href="https://github.com/alinaven/my-weather-app">
-            👩🏼‍💻 Open-source code{" "}
-          </a>
-          by Alina Vennes
-        </footer>
       </div>
-    </div>
-  );
+    );
+  } else {
+    let apiKey = "5d746e8f46d35c046956d77d0f16774f";
+    let city = "New York";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+
+    return "Loading...";
+  }
 }
