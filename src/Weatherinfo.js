@@ -3,7 +3,7 @@ import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
 import FormattedTime from "./FormattedTime";
 
-export default function WeatherInfo(props) {
+export default function Weatherinfo(props) {
   return (
     <div className="WeatherInfo">
       <div className="row p-3">
