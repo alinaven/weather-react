@@ -1,6 +1,7 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
+import FormattedTime from "./FormattedTime";
 
 export default function WeatherInfo(props) {
   return (
@@ -23,9 +24,9 @@ export default function WeatherInfo(props) {
 
             <div className="row m-0 p-0">
               <div className="col-12 suntime">
-                Sunrise: <span id="sunrise">{props.data.sunrise}</span>h |
-                Sunset:
-                <span id="sunset">{props.data.sunset}</span>h
+                Sunrise:
+                <FormattedTime date={props.data.sunrise} />h | Sunset:
+                <FormattedTime date={props.data.sunset} />h
               </div>
             </div>
           </div>

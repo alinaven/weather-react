@@ -20,8 +20,8 @@ export default function Weather(props) {
       iconURL: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       icon: response.data.weather[0].icon,
       date: new Date(response.data.dt * 1000),
-      sunrise: "08:00",
-      sunset: "16:45",
+      sunrise: new Date(response.data.sys.sunrise * 1000),
+      sunset: new Date(response.data.sys.sunset * 1000),
     });
   }
 
