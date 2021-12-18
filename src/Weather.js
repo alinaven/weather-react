@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "./Weather.css";
-import Weatherinfo from "./Weatherinfo";
+import WeatherInfo from "./WeatherInfo";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -72,7 +72,7 @@ export default function Weather(props) {
             </div>
           </div>
 
-          <Weatherinfo data={weatherData} />
+          <WeatherInfo data={weatherData} />
 
           <footer id="Github-link">
             <a href="https://github.com/alinaven/my-weather-app">
