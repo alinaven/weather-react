@@ -60,7 +60,7 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <div className="background-box shadow p-2 pt-4 pb-4 rounded">
+        <div className="background-box p-2 pt-4 pb-4">
           <div className="row m-2">
             <div className="search-bar">
               <form id="search-form" onSubmit={handleSubmit}>
@@ -104,8 +104,8 @@ export default function Weather(props) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              👩🏼‍💻 Open-source code{" "}
-            </a>
+              👩🏼‍💻 Open-source code
+            </a>{" "}
             by Alina Vennes
           </footer>
         </div>
