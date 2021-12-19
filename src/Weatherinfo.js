@@ -24,8 +24,7 @@ export default function Weatherinfo(props) {
 
             <div className="row m-0 p-0">
               <div className="col-12 suntime">
-                Sunrise:
-                <FormattedTime date={props.data.sunrise} /> h | Sunset:
+                Sunrise: <FormattedTime date={props.data.sunrise} />h | Sunset:{" "}
                 <FormattedTime date={props.data.sunset} />h
               </div>
             </div>
