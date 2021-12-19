@@ -100,7 +100,7 @@ export default function Weather(props) {
           </div>
           <footer id="Github-link">
             <a
-              href="https://github.com/alinaven/my-weather-app"
+              href="https://github.com/alinaven/weather-react"
               target="_blank"
               rel="noopener noreferrer"
             >
