@@ -1,0 +1,27 @@
+.music-player *,
+.music-player *:before,
+.music-player *:after {
+  box-sizing: border-box;
+}
+
+.music-player html {
+  height: 100%;
+}
+
+.music-player body {
+  min-height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+}
+
+.music-player {
+  width: 100%;
+  padding: 20px;
+}
+
+iframe {
+  display: block;
+  transition: opacity 0.125s;
+  border-radius: 20px;
+}

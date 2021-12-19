@@ -5,6 +5,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import Weatherinfo from "./Weatherinfo";
 import WeatherForecast from "./WeatherForecast";
+import MusicPlayer from "./MusicPlayer";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -95,6 +96,12 @@ export default function Weather(props) {
             <hr />
           </div>
           <WeatherForecast data={weatherData} />
+          <div>
+            <hr />
+          </div>
+          <div class="music-player">
+            <MusicPlayer code={weatherData.icon} />
+          </div>
           <div>
             <hr />
           </div>
