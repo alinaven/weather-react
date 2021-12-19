@@ -4,10 +4,19 @@
 
 .Weather #city,
 .Weather #country {
-  font-family: "Poppins", sans-serif;
-  font-size: 40px;
+  font-family: "Lato", sans-serif;
+  font-size: 50px;
   font-weight: bold;
   text-decoration: underline;
+  font-style: italic;
+  text-decoration-thickness: 2px;
+}
+
+.Weather #country {
+  font-size: 30px;
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 .Weather ul {
@@ -21,15 +30,12 @@
   margin: 5px 0 0 0;
 }
 .Weather .background-box {
-  background-color: #f8fdff;
+  background-color: rgba(255, 255, 255, 0.816);
   margin-top: 20px;
-  padding: 5px;
+  margin-bottom: 20px;
   border-radius: 10px;
   max-width: 1000px;
-}
-
-.Weather .day {
-  text-align: center;
+  box-shadow: 30px, 30px, black;
 }
 
 .Weather .daily-icon {
@@ -81,8 +87,9 @@
   font-size: 12px;
 }
 
-.Weather #description {
+.Weatherinfo li#description {
   text-transform: capitalize;
+  font-size: 20px;
   text-align: left;
 }
 
@@ -101,8 +108,7 @@
 }
 
 .Weather .weather-forecast {
-  margin-top: 30px;
-  margin-bottom: 15px;
+  margin: 20px;
   text-align: center;
 }
 
@@ -129,4 +135,14 @@
 .Weather .current-city {
   text-align: left;
   display: inline;
+}
+
+.Weather .loader {
+  display: block;
+  margin: 0 auto;
+  max-width: 200px;
+}
+
+#Github-link {
+  margin-left: 10px;
 }

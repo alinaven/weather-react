@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "./Weather.css";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 import Weatherinfo from "./Weatherinfo";
 import WeatherForecast from "./WeatherForecast";
 
@@ -15,7 +17,7 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       city: response.data.name,
       country: response.data.sys.country,
-      felttemp: response.data.sys.feels_like,
+      felttemp: Math.round(response.data.main.feels_like),
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
       iconURL: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
@@ -58,7 +60,7 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <div className="background-box shadow p-3 m-5 rounded">
+        <div className="background-box shadow p-2 pt-4 pb-4 rounded">
           <div className="row m-2">
             <div className="search-bar">
               <form id="search-form" onSubmit={handleSubmit}>
@@ -96,11 +98,25 @@ export default function Weather(props) {
           <div>
             <hr />
           </div>
+          <footer id="Github-link">
+            <a
+              href="https://github.com/alinaven/my-weather-app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              👩🏼‍💻 Open-source code{" "}
+            </a>
+            by Alina Vennes
+          </footer>
         </div>
       </div>
     );
   } else {
     search();
-    return "Loading...";
+    return (
+      <div className="loader">
+        <Loader type="TailSpin" color="#00BFFF" height={80} width={80} />
+      </div>
+    );
   }
 }

@@ -8,16 +8,6 @@ function App() {
       <div className="container">
         <Weather defaultCity="Los Angeles" />
       </div>
-      <footer id="Github-link">
-        <a
-          href="https://github.com/alinaven/my-weather-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          👩🏼‍💻 Open-source code{" "}
-        </a>
-        by Alina Vennes
-      </footer>
     </div>
   );
 }

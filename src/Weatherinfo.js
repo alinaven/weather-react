@@ -2,13 +2,14 @@ import React from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
 import FormattedTime from "./FormattedTime";
+import "./Weather.css";
 
 export default function Weatherinfo(props) {
   return (
     <div className="Weatherinfo">
       <div className="row p-3">
         <div className="col-sm-6 location-info">
-          <div className="row mt-0">
+          <div className="row mt-2">
             <div className="col-sm-12 current-city">
               <span id="city">{props.data.city}, </span>
               <span id="country">{props.data.country}</span>
@@ -24,8 +25,8 @@ export default function Weatherinfo(props) {
 
             <div className="row m-0 p-0">
               <div className="col-12 suntime">
-                Sunrise: <FormattedTime date={props.data.sunrise} />h | Sunset:{" "}
-                <FormattedTime date={props.data.sunset} />h
+                ☀️ Sunrise: <FormattedTime date={props.data.sunrise} />h | 🌙
+                Sunset: <FormattedTime date={props.data.sunset} />h
               </div>
             </div>
           </div>
@@ -33,18 +34,12 @@ export default function Weatherinfo(props) {
 
         <div className="col-sm-6 weather-info">
           <div className="row m-0 mt-0">
-            <div className="col-sm-8 current-weather">
+            <div className="col-sm-6 current-weather">
               <WeatherTemperature celsius={props.data.temperature} />
-
-              <br />
-              <span id="description" className="text-capitalize">
-                {props.data.description}
-              </span>
             </div>
-            <div className="col-sm-4 mt-4 px-0">
+            <div className="col-sm-6">
               <img
                 src={props.data.iconURL}
-                id="main-icon"
                 className="img-fluid main-icon"
                 alt={props.data.description}
               />
@@ -54,6 +49,12 @@ export default function Weatherinfo(props) {
           <div className="row m-0 mt-4">
             <div className="col-sm-12 info-description">
               <ul>
+                <li id="description" className="text-capitalize">
+                  {props.data.description}
+                </li>
+                <li>
+                  <hr />
+                </li>
                 <li>
                   Temperature feels like
                   <span className="info-value">
@@ -64,13 +65,13 @@ export default function Weatherinfo(props) {
                 <li>
                   Humidity:
                   <span className="info-value">
-                    <span id="humidity">{props.data.humidity}</span>%
+                    <span id="humidity"> {props.data.humidity}</span>%
                   </span>
                 </li>
                 <li>
                   Windspeed:
                   <span className="info-value">
-                    <span id="wind">{props.data.wind}</span> m/s
+                    <span id="wind"> {props.data.wind}</span> m/s
                   </span>
                 </li>
               </ul>
