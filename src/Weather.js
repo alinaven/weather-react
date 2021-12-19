@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import "./Weather.css";
 import Weatherinfo from "./Weatherinfo";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -22,6 +23,8 @@ export default function Weather(props) {
       date: new Date(response.data.dt * 1000),
       sunrise: new Date(response.data.sys.sunrise * 1000),
       sunset: new Date(response.data.sys.sunset * 1000),
+      lat: response.data.coord.lat,
+      lon: response.data.coord.lon,
     });
   }
 
@@ -71,15 +74,14 @@ export default function Weather(props) {
               </form>
             </div>
           </div>
-
           <Weatherinfo data={weatherData} />
-
-          <footer id="Github-link">
-            <a href="https://github.com/alinaven/my-weather-app">
-              👩🏼‍💻 Open-source code{" "}
-            </a>
-            by Alina Vennes
-          </footer>
+          <div>
+            <hr />
+          </div>
+          <WeatherForecast data={weatherData} />
+          <div>
+            <hr />
+          </div>
         </div>
       </div>
     );
