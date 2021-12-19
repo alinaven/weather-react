@@ -59,8 +59,8 @@ export default function Weather(props) {
 
   if (weatherData.ready) {
     return (
-      <div className="Weather center-block">
-        <div className="background-box p-2 pt-4 pb-4s">
+      <div className="Weather">
+        <div className="background-box p-2 pt-4 pb-4">
           <div className="row m-2">
             <div className="search-bar">
               <form id="search-form" onSubmit={handleSubmit}>
@@ -114,7 +114,7 @@ export default function Weather(props) {
   } else {
     search();
     return (
-      <div className="loader center-block">
+      <div className="loader">
         <Loader type="TailSpin" color="#00BFFF" height={80} width={80} />
       </div>
     );
