@@ -60,7 +60,7 @@ export default function Weather(props) {
 
   if (weatherData.ready) {
     return (
-      <div className="Weather">
+      <div className="Weather center-block">
         <div className="background-box p-2 pt-4 pb-4">
           <div className="row m-2">
             <div className="search-bar">

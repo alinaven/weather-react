@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./MusicPlayer.css";
 
 export default function MusicPlayer(props) {
