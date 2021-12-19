@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./WeatherForecast.css";
 import axios from "axios";
 import WeatherForecastDay from "./WeatherForecastDay";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
 export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
@@ -15,6 +17,7 @@ export default function WeatherForecast(props) {
     setForecast(response.data.daily);
     setLoaded(true);
   }
+
   function load() {
     let apiKey = "5d746e8f46d35c046956d77d0f16774f";
     let lon = props.data.lon;
@@ -43,6 +46,10 @@ export default function WeatherForecast(props) {
     );
   } else {
     load();
-    return null;
+    return (
+      <div className="loader">
+        <Loader type="TailSpin" color="#7297a3" height={80} width={80} />
+      </div>
+    );
   }
 }

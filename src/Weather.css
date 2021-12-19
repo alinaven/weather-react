@@ -138,8 +138,8 @@
 }
 
 .Weather .loader {
-  display: block;
-  margin: 0 auto;
+  display: inline;
+  text-align: center;
   max-width: 200px;
 }
 
