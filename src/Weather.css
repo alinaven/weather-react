@@ -5,7 +5,7 @@
 .Weather #city,
 .Weather #country {
   font-family: "Lato", sans-serif;
-  font-size: 50px;
+  font-size: 55px;
   font-weight: bold;
   text-decoration: underline;
   font-style: italic;
@@ -52,13 +52,14 @@
 
 .Weather .suntime {
   display: inline;
-  font-size: 13px;
+  font-size: 14px;
   margin-top: 20px;
   text-align: left;
 }
 
 .Weather .info-description {
   font-size: 14px;
+  line-height: 25px;
 }
 
 .Weather .day-name {
