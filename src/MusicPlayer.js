@@ -3,10 +3,12 @@ import "./MusicPlayer.css";
 
 export default function MusicPlayer(props) {
   const codeMapping = {
+    // clear
     "01d":
       "https://open.spotify.com/embed/playlist/3sr9s0oBCa1FrbNv9WOfmp?utm_source=generator",
     "01n":
-      "https://open.spotify.com/embed/playlist/3sr9s0oBCa1FrbNv9WOfmp?utm_source=generator",
+      "https://open.spotify.com/embed/playlist/4uQU0wXsuLV0fD8GzUfEVr?utm_source=generator",
+    // cloudy
     "02d":
       "https://open.spotify.com/embed/playlist/3sr9s0oBCa1FrbNv9WOfmp?utm_source=generator",
     "02n":
@@ -19,22 +21,26 @@ export default function MusicPlayer(props) {
       "https://open.spotify.com/embed/playlist/7zzQIKEsu9SlTwRB1T8b8s?utm_source=generator",
     "04n":
       "https://open.spotify.com/embed/playlist/7zzQIKEsu9SlTwRB1T8b8s?utm_source=generator",
+    //rain
     "09d":
       "https://open.spotify.com/embed/playlist/3fXcsed3jQxjqGeSdoJ9jN?utm_source=generator",
     "09n":
-      "https://open.spotify.com/embed/playlist/3fXcsed3jQxjqGeSdoJ9jN?utm_source=generator",
+      "https://open.spotify.com/embed/playlist/4dlYSpSOZjDZizTaiX7Kjy?utm_source=generator",
     "10d":
       "https://open.spotify.com/embed/playlist/3fXcsed3jQxjqGeSdoJ9jN?utm_source=generator",
     "10n":
-      "https://open.spotify.com/embed/playlist/3fXcsed3jQxjqGeSdoJ9jN?utm_source=generator",
+      "https://open.spotify.com/embed/playlist/4dlYSpSOZjDZizTaiX7Kjy?utm_source=generator",
+    //thunderstorm
     "11d":
       "https://open.spotify.com/embed/playlist/3fXcsed3jQxjqGeSdoJ9jN?utm_source=generator",
     "11n":
       "https://open.spotify.com/embed/playlist/3fXcsed3jQxjqGeSdoJ9jN?utm_source=generator",
+    //snow
     "13d":
       "https://open.spotify.com/embed/playlist/2mE6ajAGurIPK6qUu1r7zJ?utm_source=generator",
     "13n":
       "https://open.spotify.com/embed/playlist/2mE6ajAGurIPK6qUu1r7zJ?utm_source=generator",
+    // misty
     "50d":
       "https://open.spotify.com/embed/playlist/7caekjzU5qY305TcAzWfpV?utm_source=generator",
     "50n":
